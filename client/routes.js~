@@ -1,0 +1,19 @@
+angular.module('interview-builder').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
+	function($urlRouterProvider, $stateProvider, $locationProvider){
+		$locationProvider.html5Mode(true);
+
+		$stateProvider
+			.state('parties', {
+				url: '/parties',
+				templateUrl: 'client/parties/templates/parties-list.tpl',
+				controller: 'partiesListCtrl'
+			})
+			.state('partyDetails',{
+				url: '/parties/:partyId',
+				templateUrl: 'client/parties/templates/parties-details.tpl',
+				controller: 'partiesDetailCtrl'
+			});
+
+		$urlRouterProvider.otherwise("/parties");
+	}
+]);
